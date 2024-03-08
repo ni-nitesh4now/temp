@@ -1,0 +1,553 @@
+Script started on 2024-03-08 13:47:41+00:00 [TERM="xterm-256color" TTY="/dev/pts/2" COLUMNS="70" LINES="24"]
+#[?2004h#]0;lubuntu@lubuntu: ~/Desktop##[01;32mlubuntu@lubuntu#[00m:#[01;34m~/Desktop#[00m$ #[7mnasm -g -f elf64 -o test.o test.asm#[27m
+
+#[A#[C#[C#[C#[C#[C#[C#[C#[C#[C#[C#[C#[C#[C#[C#[C#[C#[C#[C#[C#[C#[C#[C#[C#[C#[C#[C#[Cnasm -g -f elf64 -o test.o test.asm
+
+#[A
+#[?2004l
+#[?2004h#]0;lubuntu@lubuntu: ~/Desktop##[01;32mlubuntu@lubuntu#[00m:#[01;34m~/Desktop#[00m$ #[7mgcc test.o /home/lubuntu/Downloads/temp-mai#[27m#[7mn#[27m#[7m/libasm_io-master/bin/libasm_io.a -no-pie -o test#[27m#[A#######################gcc test.o /home/lubuntu/Downloads/temp-main/libasm_io-master/bin/libasm_io.a -no-pie -o test
+#[?2004l
+/usr/bin/ld: warning: test.o: missing .note.GNU-stack section implies executable stack
+/usr/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+#[?2004h#]0;lubuntu@lubuntu: ~/Desktop##[01;32mlubuntu@lubuntu#[00m:#[01;34m~/Desktop#[00m$ t##[K./test
+#[?2004l
+
+======================================================================
+  _____                         _____               __                 
+ /__  /  ____   ____           / ___/ __  __ _____ / /_ ___   ____ ___ 
+   / /  / __ \ / __ \          \__ \ / / / // ___// __// _ \ / __ `__ \
+  / /__/ /_/ // /_/ /         ___/ // /_/ /(__  )/ /_ /  __// / / / / /
+ /____/\____/ \____/         /____/ \__, //____/ \__/ \___//_/ /_/ /_/ 
+                                   /____/                              
+======================================================================
+
+
+Main Menu
+ 1. Add User
+ 2. List All Users
+ 3. Count Users
+ 4. Delete Users
+ 5. Add Badgers
+ 6. List all Badgers
+ 7. Count Badgers
+ 8. Delete Badgers
+ 9. Exit
+Please Enter Option 1 - 8
+Warning!! Any wrong input will initiate the main menu to and data entered will be deleted
+1
+Option selected: 1
+
+Enter ID & enter the numbers without 'p' i.e. 7 digits only: 
+1231231
+Enter forename:
+john
+Enter surname:
+doe
+Enter starting year:
+2021
+Enter salary:
+12000
+
+Select the number that corresponds with your department
+ 1. Park Keeper
+ 2. Gift Shop
+ 3. Cafe
+Please Enter Option 1 - 3
+1
+Enter email:
+john@jnz.co.uk
+
+A new user has been added Successfully!! 
+
+
+Main Menu
+ 1. Add User
+ 2. List All Users
+ 3. Count Users
+ 4. Delete Users
+ 5. Add Badgers
+ 6. List all Badgers
+ 7. Count Badgers
+ 8. Delete Badgers
+ 9. Exit
+Please Enter Option 1 - 8
+Warning!! Any wrong input will initiate the main menu to and data entered will be deleted
+1
+Option selected: 1
+
+Enter ID & enter the numbers without 'p' i.e. 7 digits only: 
+1231231# #2
+Enter forename:
+kenry
+Enter surname:
+k
+Enter starting year:
+2020
+Enter salary:
+18000
+
+Select the number that corresponds with your department
+ 1. Park Keeper
+ 2. Gift Shop
+ 3. Cafe
+Please Enter Option 1 - 3
+1
+Enter email:
+kenry@jnz.co.uk
+
+A new user has been added Successfully!! 
+
+
+Main Menu
+ 1. Add User
+ 2. List All Users
+ 3. Count Users
+ 4. Delete Users
+ 5. Add Badgers
+ 6. List all Badgers
+ 7. Count Badgers
+ 8. Delete Badgers
+ 9. Exit
+Please Enter Option 1 - 8
+Warning!! Any wrong input will initiate the main menu to and data entered will be deleted
+1
+Option selected: 1
+
+Enter ID & enter the numbers without 'p' i.e. 7 digits only: 
+1231233
+Enter forename:
+leo
+Enter surname:
+pail
+Enter starting year:
+2013
+Enter salary:
+60000
+
+Select the number that corresponds with your department
+ 1. Park Keeper
+ 2. Gift Shop
+ 3. Cafe
+Please Enter Option 1 - 3
+1
+Enter email:
+leo@jnz.co.uk
+
+A new user has been added Successfully!! 
+
+
+Main Menu
+ 1. Add User
+ 2. List All Users
+ 3. Count Users
+ 4. Delete Users
+ 5. Add Badgers
+ 6. List all Badgers
+ 7. Count Badgers
+ 8. Delete Badgers
+ 9. Exit
+Please Enter Option 1 - 8
+Warning!! Any wrong input will initiate the main menu to and data entered will be deleted
+2
+Option selected: 2
+
+ID: p1231231
+Full Name: john doe
+Year of Joining: 2021
+Annual Salary: £ 12000 GBP
+Current Salary: £ 12600 GBP
+Deaprtment: Park Keeper
+Email: john@jnz.co.uk
+
+ID: p1231232
+Full Name: kenry k
+Year of Joining: 2020
+Annual Salary: £ 18000 GBP
+Current Salary: £ 18800 GBP
+Deaprtment: Park Keeper
+Email: kenry@jnz.co.uk
+
+ID: p1231233
+Full Name: leo pail
+Year of Joining: 2013
+Annual Salary: £ 60000 GBP
+Current Salary: £ 62200 GBP
+Deaprtment: Park Keeper
+Email: leo@jnz.co.uk
+
+
+Main Menu
+ 1. Add User
+ 2. List All Users
+ 3. Count Users
+ 4. Delete Users
+ 5. Add Badgers
+ 6. List all Badgers
+ 7. Count Badgers
+ 8. Delete Badgers
+ 9. Exit
+Please Enter Option 1 - 8
+Warning!! Any wrong input will initiate the main menu to and data entered will be deleted
+3
+Option selected: 3
+
+Number of users: 3
+
+Main Menu
+ 1. Add User
+ 2. List All Users
+ 3. Count Users
+ 4. Delete Users
+ 5. Add Badgers
+ 6. List all Badgers
+ 7. Count Badgers
+ 8. Delete Badgers
+ 9. Exit
+Please Enter Option 1 - 8
+Warning!! Any wrong input will initiate the main menu to and data entered will be deleted
+4
+Option selected: 4
+
+
+please enter ID of staff member to delete
+1231231
+Staff member ID found
+
+Main Menu
+ 1. Add User
+ 2. List All Users
+ 3. Count Users
+ 4. Delete Users
+ 5. Add Badgers
+ 6. List all Badgers
+ 7. Count Badgers
+ 8. Delete Badgers
+ 9. Exit
+Please Enter Option 1 - 8
+Warning!! Any wrong input will initiate the main menu to and data entered will be deleted
+2
+Option selected: 2
+
+ID: p1231232
+Full Name: kenry k
+Year of Joining: 2020
+Annual Salary: £ 18000 GBP
+Current Salary: £ 18800 GBP
+Deaprtment: Park Keeper
+Email: kenry@jnz.co.uk
+
+ID: p1231233
+Full Name: leo pail
+Year of Joining: 2013
+Annual Salary: £ 60000 GBP
+Current Salary: £ 62200 GBP
+Deaprtment: Park Keeper
+Email: leo@jnz.co.uk
+
+
+Main Menu
+ 1. Add User
+ 2. List All Users
+ 3. Count Users
+ 4. Delete Users
+ 5. Add Badgers
+ 6. List all Badgers
+ 7. Count Badgers
+ 8. Delete Badgers
+ 9. Exit
+Please Enter Option 1 - 8
+Warning!! Any wrong input will initiate the main menu to and data entered will be deleted
+3
+Option selected: 3
+
+Number of users: 2
+
+Main Menu
+ 1. Add User
+ 2. List All Users
+ 3. Count Users
+ 4. Delete Users
+ 5. Add Badgers
+ 6. List all Badgers
+ 7. Count Badgers
+ 8. Delete Badgers
+ 9. Exit
+Please Enter Option 1 - 8
+Warning!! Any wrong input will initiate the main menu to and data entered will be deleted
+5
+Option selected: 5
+Enter Badgers ID & enter the numbers only without 'b' i.e. 6 digits only:
+123111
+Enter Badger name:
+kinf# #g
+
+Select the number that corresponds with the Home setting of the Badger
+ 1. Settfield
+ 2. Badgerton
+ 3. Stripeville
+Please Enter Option 1 - 3
+1
+Enter Badger mass to the nearest whole KG :
+66
+Enter number of stripes b/w 0-255:
+1
+Enter Badger sex:
+ 1. Male
+ 2. Female
+1
+Enter the birth month of the Badger, ranging (0-11) where 
+number 0 represents January, 1 is February, .... and 11 is December. Default is January, if nothing is entered.
+6
+Enter the year Badger was born:
+2022
+
+Please enter the keeper ID of the badger (7 digit number)
+1231231# #2
+A new Badger is added successfully!!
+
+
+Main Menu
+ 1. Add User
+ 2. List All Users
+ 3. Count Users
+ 4. Delete Users
+ 5. Add Badgers
+ 6. List all Badgers
+ 7. Count Badgers
+ 8. Delete Badgers
+ 9. Exit
+Please Enter Option 1 - 8
+Warning!! Any wrong input will initiate the main menu to and data entered will be deleted
+5
+Option selected: 5
+Enter Badgers ID & enter the numbers only without 'b' i.e. 6 digits only:
+123112
+Enter Badger name:
+prince
+
+Select the number that corresponds with the Home setting of the Badger
+ 1. Settfield
+ 2. Badgerton
+ 3. Stripeville
+Please Enter Option 1 - 3
+2
+Enter Badger mass to the nearest whole KG :
+30
+Enter number of stripes b/w 0-255:
+0
+Enter Badger sex:
+ 1. Male
+ 2. Female
+1
+Enter the birth month of the Badger, ranging (0-11) where 
+number 0 represents January, 1 is February, .... and 11 is December. Default is January, if nothing is entered.
+1
+Enter the year Badger was born:
+2022# #4
+
+Please enter the keeper ID of the badger (7 digit number)
+1231232
+A new Badger is added successfully!!
+
+
+Main Menu
+ 1. Add User
+ 2. List All Users
+ 3. Count Users
+ 4. Delete Users
+ 5. Add Badgers
+ 6. List all Badgers
+ 7. Count Badgers
+ 8. Delete Badgers
+ 9. Exit
+Please Enter Option 1 - 8
+Warning!! Any wrong input will initiate the main menu to and data entered will be deleted
+5
+Option selected: 5
+Enter Badgers ID & enter the numbers only without 'b' i.e. 6 digits only:
+123122
+Enter Badger name:
+royal
+
+Select the number that corresponds with the Home setting of the Badger
+ 1. Settfield
+ 2. Badgerton
+ 3. Stripeville
+Please Enter Option 1 - 3
+3
+Enter Badger mass to the nearest whole KG :
+70
+Enter number of stripes b/w 0-255:
+35
+Enter Badger sex:
+ 1. Male
+ 2. Female
+2
+Enter the birth month of the Badger, ranging (0-11) where 
+number 0 represents January, 1 is February, .... and 11 is December. Default is January, if nothing is entered.
+5
+Enter the year Badger was born:
+2020
+
+Please enter the keeper ID of the badger (7 digit number)
+1231233
+A new Badger is added successfully!!
+
+
+Main Menu
+ 1. Add User
+ 2. List All Users
+ 3. Count Users
+ 4. Delete Users
+ 5. Add Badgers
+ 6. List all Badgers
+ 7. Count Badgers
+ 8. Delete Badgers
+ 9. Exit
+Please Enter Option 1 - 8
+Warning!! Any wrong input will initiate the main menu to and data entered will be deleted
+6
+Option selected: 6
+
+Badger ID: b123111
+Full Name: king
+Home Sett: Settfield
+Mass: 66
+No. of Stripes: 1
+Stripiness: 66
+Sex: Male
+Badger DOB: 6/2022
+Age: 1
+Keeper: p1231232
+
+Badger ID: b123112
+Full Name: prince
+Home Sett: Badgerton
+Mass: 30
+No. of Stripes: 0
+Stripiness: 0
+Sex: Male
+Badger DOB: 1/2024
+Age: 0
+Keeper: p1231232
+
+Badger ID: b123122
+Full Name: royal
+Home Sett: Stripeville
+Mass: 70
+No. of Stripes: 35
+Stripiness: 2450
+Sex: Female
+Badger DOB: 5/2020
+Age: 3
+Keeper: p1231233
+
+
+Main Menu
+ 1. Add User
+ 2. List All Users
+ 3. Count Users
+ 4. Delete Users
+ 5. Add Badgers
+ 6. List all Badgers
+ 7. Count Badgers
+ 8. Delete Badgers
+ 9. Exit
+Please Enter Option 1 - 8
+Warning!! Any wrong input will initiate the main menu to and data entered will be deleted
+7
+Option selected: 7
+
+Number of Badgers: 3
+
+Main Menu
+ 1. Add User
+ 2. List All Users
+ 3. Count Users
+ 4. Delete Users
+ 5. Add Badgers
+ 6. List all Badgers
+ 7. Count Badgers
+ 8. Delete Badgers
+ 9. Exit
+Please Enter Option 1 - 8
+Warning!! Any wrong input will initiate the main menu to and data entered will be deleted
+8
+Option selected: 8
+Please enter badger ID you want to delete
+123122# ## #11
+Badger found
+
+Main Menu
+ 1. Add User
+ 2. List All Users
+ 3. Count Users
+ 4. Delete Users
+ 5. Add Badgers
+ 6. List all Badgers
+ 7. Count Badgers
+ 8. Delete Badgers
+ 9. Exit
+Please Enter Option 1 - 8
+Warning!! Any wrong input will initiate the main menu to and data entered will be deleted
+6
+Option selected: 6
+
+Badger ID: b123112
+Full Name: prince
+Home Sett: Badgerton
+Mass: 30
+No. of Stripes: 0
+Stripiness: 0
+Sex: Male
+Badger DOB: 1/2024
+Age: 0
+Keeper: p1231232
+
+Badger ID: b123122
+Full Name: royal
+Home Sett: Stripeville
+Mass: 70
+No. of Stripes: 35
+Stripiness: 2450
+Sex: Female
+Badger DOB: 5/2020
+Age: 3
+Keeper: p1231233
+
+
+Main Menu
+ 1. Add User
+ 2. List All Users
+ 3. Count Users
+ 4. Delete Users
+ 5. Add Badgers
+ 6. List all Badgers
+ 7. Count Badgers
+ 8. Delete Badgers
+ 9. Exit
+Please Enter Option 1 - 8
+Warning!! Any wrong input will initiate the main menu to and data entered will be deleted
+7
+Option selected: 7
+
+Number of Badgers: 2
+
+Main Menu
+ 1. Add User
+ 2. List All Users
+ 3. Count Users
+ 4. Delete Users
+ 5. Add Badgers
+ 6. List all Badgers
+ 7. Count Badgers
+ 8. Delete Badgers
+ 9. Exit
+Please Enter Option 1 - 8
+Warning!! Any wrong input will initiate the main menu to and data entered will be deleted
+9
+Option selected: 9
+Program exited normally.
+#[?2004h#]0;lubuntu@lubuntu: ~/Desktop##[01;32mlubuntu@lubuntu#[00m:#[01;34m~/Desktop#[00m$ exit
+#[?2004l
+exit
