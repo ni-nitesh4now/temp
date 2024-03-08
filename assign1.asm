@@ -1,5 +1,5 @@
 
-%include "/home/malware/asm/joey_lib_io_v9_release.asm"
+%include "/home/lubuntu/Desktop/joey.asm"
 
 global main
 
@@ -156,7 +156,7 @@ section .data
 
   size_badger_record equ size_delete + size_badger_id + size_badger_name + size_badger_home_sett + size_badger_mass + size_badger_stripes + size_badger_sex + size_badger_birth_month + size_badger_birth_year + size_id
   max_num_badgers equ 500
-  size_badgers_array equ size_badger_record * ; Note that max_num_badgers is an immediate operand since it is defined at build-time
+  size_badgers_array equ size_badger_record * max_num_badgers; Note that max_num_badgers is an immediate operand since it is defined at build-time
 section .bss
   users: resb size_users_array
   temp_users: resb size_user_record
@@ -188,7 +188,7 @@ add_user:
   cmp rax, 10000000
   jge .error
 
-  add rcx, size_id         by 1 byte (which is the size of age field)
+  add rcx, size_id         
   mov rdi, prnt_enter_forename
   call print_string_new   ; print message
   call read_string_new    
@@ -200,7 +200,7 @@ add_user:
   mov rdi, rcx            
   call copy_string        
 
-  add rcx, size_forename   by 64 bytes (which is the size reserved for the forename string)
+  add rcx, size_forename   
   mov rdi, prnt_enter_surname
   call print_string_new   ; print message
   call read_string_new    
@@ -212,14 +212,14 @@ add_user:
   mov rdi, rcx            
   call copy_string        
 
-  add rcx, size_surname    by 64 bytes (which is the size reserved for the surname string)
+  add rcx, size_surname    
   mov rdi, prnt_enter_year
   call print_string_new   ; print message
   call read_uint_new      
                           
   mov WORD[rcx], ax       ; we are only going to copy 1 word of RAX
   
-  add rcx, size_year_of_joining  by 64 bytes (which is the size reserved for the surname string)
+  add rcx, size_year_of_joining  
   mov rdi, prnt_enter_salary
   call print_string_new   ; print message
   call read_uint_new      
@@ -631,7 +631,6 @@ add_badgers:
     mov rbx, 0
 
     .find_spot_to_add_badger:
-                                 from rcx until you find a spot
       cmp byte[rcx], 1          ; use the first byte of each badger record to figure out if it's been deleted or not
       jne .do_badger_copy
       add rcx, size_badger_record
