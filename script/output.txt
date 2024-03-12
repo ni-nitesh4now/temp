@@ -1,0 +1,95 @@
+Script started on 2024-03-12 04:53:59+00:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="76" LINES="24"]
+[?2004h]0;lubuntu@lubuntu: ~/Downloads/temp-main[01;32mlubuntu@lubuntu[00m:[01;34m~/Downloads/temp-main[00m$ ./output
+[?2004lEnter present year: 2024
+Enter present month: 3
+---Zoo Management Program---
+1. Add User
+2. Add Badger
+3. Delete User
+4. Delete Badger
+5. Display All Users
+6. Display All Badgers
+7. Search and Display Badger by ID
+8. Search and Display Staff by ID
+0. Exit
+Enter your choice: 
+1
+You selected 1
+Enter the Staff surname: Nolan
+Enter the Staff first name: Chris
+Enter the Staff ID (Format p0000XXX): p0000123
+Enter the Staff Department: 
+1. Park Keeper
+2. Gift Shop
+3. Cafe
+1
+Enter the annual salary: 202 000
+Enter the year of joining: 2002
+Enter the Staff Email address: chris@jnz.co.uk
+---Zoo Management Program---
+1. Add User
+2. Add Badger
+3. Delete User
+4. Delete Badger
+5. Display All Users
+6. Display All Badgers
+7. Search and Display Badger by ID
+8. Search and Display Staff by ID
+0. Exit
+Enter your choice: 
+5
+You selected 5
+
+Name: Nolan Chris
+Staff ID: p0000123
+Park Keeper
+Starting Salary: £20000
+Current salary: £24400
+Year of joining: 2002
+Email: chris@jnz.co.uk
+---Zoo Management Program---
+1. Add User
+2. Add Badger
+3. Delete User
+4. Delete Badger
+5. Display All Users
+6. Display All Badgers
+7. Search and Display Badger by ID
+8. Search and Display Staff by ID
+0. Exit
+Enter your choice: 
+2
+You selected 2
+Enter the Badger ID: 
+123123
+Incorrect BadgerID format! format is b0000XXX 
+
+Enter the Badger ID: 
+b123123
+Enter the Badger Name: 
+Peak
+Enter the Badger Home Sett: 
+1. Settfield
+2. Badgerton
+3. Stripeville
+1
+Enter the mass in kilograms (to the nearest whole kg): 
+60
+Enter the number of Stripes: 
+3
+Enter the Badger sex :
+1. Male
+2. Female
+3. Other
+1
+Enter the Badger's month of Birth: 
+20  12
+Enter the Badger's year of Birth: 
+2020
+Enter StaffID of assigned keeper: 
+p00001233
+Segmentation fault (core dumped)
+[?2004h]0;lubuntu@lubuntu: ~/Downloads/temp-main[01;32mlubuntu@lubuntu[00m:[01;34m~/Downloads/temp-main[00m$ exit
+[?2004lexit
+
+Script done on 2024-03-12 04:57:39+00:00 [COMMAND_EXIT_CODE="139"]
