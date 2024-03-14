@@ -340,6 +340,7 @@ void free(void *ptr)
       }
    }
 }
+
 void *calloc(size_t nmemb, size_t size)
 {
    // Allocate memory using malloc with the requested size
@@ -357,10 +358,9 @@ void *calloc(size_t nmemb, size_t size)
 
    return ptr; // Return the pointer to the allocated memory block
 }
+
 void *realloc(void *ptr, size_t size)
 {
-   // \TODO Implement realloc
-
    // Allocate memory with the new size
    void *realloc_ptr = malloc(size);
 
