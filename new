@@ -67,81 +67,74 @@ struct _block *heapList = NULL; /* Free list to track the _blocks available */
  * \TODO Implement Best Fit
  * \TODO Implement Worst Fit
  */
-struct _block *findFreeBlock(struct _block **last, size_t size)
+struct _block *findFreeBlock(struct _block **last, size_t size) 
 {
     struct _block *curr = heapList;
+    struct _block *bestFitBlock = NULL;
+    size_t bestFitSize = SIZE_MAX; // Initialize to maximum possible size
 
 #if defined FIT && FIT == 0
-    /* First fit */
-    //
-    // While we haven't run off the end of the linked list and
-    // while the current node we point to isn't free or isn't big enough
-    // then continue to iterate over the list.  This loop ends either
-    // with curr pointing to NULL, meaning we've run to the end of the list
-    // without finding a node or it ends pointing to a free node that has enough
-    // space for the request.
-    //
-    while (curr && !(curr->free && curr->size >= size))
-    {
-        *last = curr;
+    /* First Fit */
+    while (curr) {
+        if (curr->free && curr->size >= size) {
+            *last = curr; // Update last pointer to point to the current block
+            return curr;
+        }
+        *last = curr; // Update last pointer to point to the current block
         curr = curr->next;
     }
 #endif
 
 #if defined BEST && BEST == 0
     /* Best Fit */
-    struct _block *bestFitBlock = NULL;
-    size_t bestFitSize = SIZE_MAX; // Initialize to maximum possible size
-    while (curr)
-    {
-        if (curr->free && curr->size >= size && curr->size < bestFitSize)
-        {
+    while (curr) {
+        if (curr->free && curr->size >= size && curr->size < bestFitSize) {
             bestFitBlock = curr;
             bestFitSize = curr->size;
         }
         *last = curr;
         curr = curr->next;
     }
-    curr = bestFitBlock; // Update curr to the best fit block found
+    if (bestFitBlock) {
+        return bestFitBlock;
+    }
 #endif
 
 #if defined WORST && WORST == 0
     /* Worst Fit */
     struct _block *worstFitBlock = NULL;
     size_t worstFitSize = 0; // Initialize to minimum possible size
-    while (curr)
-    {
-        if (curr->free && curr->size >= size && curr->size > worstFitSize)
-        {
+    while (curr) {
+        if (curr->free && curr->size >= size && curr->size > worstFitSize) {
             worstFitBlock = curr;
             worstFitSize = curr->size;
         }
         *last = curr;
         curr = curr->next;
     }
-    curr = worstFitBlock; // Update curr to the worst fit block found
+    if (worstFitBlock) {
+        return worstFitBlock;
+    }
 #endif
 
 #if defined NEXT && NEXT == 0
     /* Next Fit */
     static struct _block *nextFitStart = NULL; // Static variable to store the last checked block
-    if (nextFitStart)
-    {
+    if (nextFitStart) {
         curr = nextFitStart; // Start from the last checked block
     }
-    while (curr)
-    {
-        if (curr->free && curr->size >= size)
-        {
+    while (curr) {
+        if (curr->free && curr->size >= size) {
             nextFitStart = curr; // Update nextFitStart to the current block
-            break;               // Stop searching after finding the first suitable block
+            *last = curr; // Update last pointer to point to the current block
+            return curr;
         }
-        *last = curr;
+        *last = curr; // Update last pointer to point to the current block
         curr = curr->next;
     }
 #endif
 
-    return curr;
+    return NULL; // No suitable block found
 }
 
 /*
