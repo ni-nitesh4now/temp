@@ -1,5 +1,626 @@
-\
-                CustomTests/tst1 \
-                CustomTests/tst2 \
-                CustomTests/tst3 \
-                CustomTests/tst4 
+make
+gcc -shared -fPIC -g -gdwarf-2 -std=gnu99 -Wall -DFIT=0 -o lib/libmalloc-ff.so src/malloc.c 
+gcc -shared -fPIC -g -gdwarf-2 -std=gnu99 -Wall -DNEXT=0 -o lib/libmalloc-nf.so src/malloc.c 
+gcc -shared -fPIC -g -gdwarf-2 -std=gnu99 -Wall -DBEST=0 -o lib/libmalloc-bf.so src/malloc.c 
+gcc -shared -fPIC -g -gdwarf-2 -std=gnu99 -Wall -DWORST=0 -o lib/libmalloc-wf.so src/malloc.c 
+lubuntu@lubuntu:~/Downloads/malloc/assignment$ time env LD_PRELOAD=lib/libmalloc-ff.so tests/ffnf
+First fit should pick this one: 0x563970958018
+Next fit should pick this one: 0x563970959c58
+Chosen address: 0x563970958018
+
+heap management statistics
+mallocs:        12
+frees:          3
+reuses:         12
+grows:          10
+splits:         0
+coalesces:      0
+blocks:         9
+requested:      16048
+max heap:       9064
+
+real    0m0.040s
+user    0m0.015s
+sys     0m0.005s
+lubuntu@lubuntu:~/Downloads/malloc/assignment$ time env LD_PRELOAD=lib/libmalloc-nf.so tests/ffnf
+First fit should pick this one: 0x55f078e82018
+Next fit should pick this one: 0x55f078e83c58
+Chosen address: 0x55f078e83c58
+
+heap management statistics
+mallocs:        12
+frees:          3
+reuses:         12
+grows:          10
+splits:         0
+coalesces:      0
+blocks:         9
+requested:      16048
+max heap:       9064
+
+real    0m0.018s
+user    0m0.005s
+sys     0m0.010s
+lubuntu@lubuntu:~/Downloads/malloc/assignment$ time env LD_PRELOAD=lib/libmalloc-bf.so tests/bfwf
+Worst fit should pick this one: 0x5568420f0018
+Best fit should pick this one: 0x5568421000c4
+Chosen address: 0x5568421000c4
+
+heap management statistics
+mallocs:        7
+frees:          2
+reuses:         7
+grows:          6
+splits:         1
+coalesces:      0
+blocks:         6
+requested:      73626
+max heap:       72636
+
+real    0m0.017s
+user    0m0.010s
+sys     0m0.008s
+lubuntu@lubuntu:~/Downloads/malloc/assignment$ time env LD_PRELOAD=lib/libmalloc-wf.so tests/bfwf
+Worst fit should pick this one: 0x563fb2cf6018
+Best fit should pick this one: 0x563fb2d060c4
+Chosen address: 0x563fb2cf6018
+
+heap management statistics
+mallocs:        7
+frees:          2
+reuses:         7
+grows:          6
+splits:         1
+coalesces:      0
+blocks:         6
+requested:      73626
+max heap:       72636
+
+real    0m0.016s
+user    0m0.004s
+sys     0m0.010s
+lubuntu@lubuntu:~/Downloads/malloc/assignment$ time env LD_PRELOAD=lib/libmalloc-ff.so tests/test1
+Running test 1 to test a simple malloc and free
+
+heap management statistics
+mallocs:        2
+frees:          1
+reuses:         2
+grows:          2
+splits:         0
+coalesces:      0
+blocks:         1
+requested:      66559
+max heap:       66560
+
+real    0m0.022s
+user    0m0.010s
+sys     0m0.012s
+lubuntu@lubuntu:~/Downloads/malloc/assignment$ time env LD_PRELOAD=lib/libmalloc-nf.so tests/test1
+Running test 1 to test a simple malloc and free
+
+heap management statistics
+mallocs:        2
+frees:          1
+reuses:         2
+grows:          2
+splits:         0
+coalesces:      0
+blocks:         1
+requested:      66559
+max heap:       66560
+
+real    0m0.012s
+user    0m0.004s
+sys     0m0.006s
+lubuntu@lubuntu:~/Downloads/malloc/assignment$ time env LD_PRELOAD=lib/libmalloc-wf.so tests/test1
+Running test 1 to test a simple malloc and free
+
+heap management statistics
+mallocs:        2
+frees:          1
+reuses:         2
+grows:          2
+splits:         0
+coalesces:      0
+blocks:         1
+requested:      66559
+max heap:       66560
+
+real    0m0.011s
+user    0m0.009s
+sys     0m0.002s
+lubuntu@lubuntu:~/Downloads/malloc/assignment$ time env LD_PRELOAD=lib/libmalloc-bf.so tests/test1
+Running test 1 to test a simple malloc and free
+
+heap management statistics
+mallocs:        2
+frees:          1
+reuses:         2
+grows:          2
+splits:         0
+coalesces:      0
+blocks:         1
+requested:      66559
+max heap:       66560
+
+real    0m0.014s
+user    0m0.000s
+sys     0m0.014s
+lubuntu@lubuntu:~/Downloads/malloc/assignment$ time env LD_PRELOAD=lib/libmalloc-ff.so tests/test2
+Running test 2 to exercise malloc and free
+
+heap management statistics
+mallocs:        1027
+frees:          514
+reuses:         1027
+grows:          1026
+splits:         1
+coalesces:      2
+blocks:         1024
+requested:      1180670
+max heap:       1115136
+
+real    0m0.031s
+user    0m0.011s
+sys     0m0.020s
+lubuntu@lubuntu:~/Downloads/malloc/assignment$ time env LD_PRELOAD=lib/libmalloc-nf.so tests/test2
+Running test 2 to exercise malloc and free
+
+heap management statistics
+mallocs:        1027
+frees:          514
+reuses:         1027
+grows:          1026
+splits:         1
+coalesces:      2
+blocks:         1024
+requested:      1180670
+max heap:       1115136
+
+real    0m0.025s
+user    0m0.013s
+sys     0m0.013s
+lubuntu@lubuntu:~/Downloads/malloc/assignment$ time env LD_PRELOAD=lib/libmalloc-bf.so tests/test2
+Running test 2 to exercise malloc and free
+
+heap management statistics
+mallocs:        1027
+frees:          514
+reuses:         1027
+grows:          1026
+splits:         1
+coalesces:      2
+blocks:         1024
+requested:      1180670
+max heap:       1115136
+
+real    0m0.027s
+user    0m0.014s
+sys     0m0.012s
+lubuntu@lubuntu:~/Downloads/malloc/assignment$ time env LD_PRELOAD=lib/libmalloc-wf.so tests/test2
+Running test 2 to exercise malloc and free
+
+heap management statistics
+mallocs:        1027
+frees:          514
+reuses:         1027
+grows:          1026
+splits:         1
+coalesces:      2
+blocks:         1024
+requested:      1180670
+max heap:       1115136
+
+real    0m0.035s
+user    0m0.021s
+sys     0m0.014s
+lubuntu@lubuntu:~/Downloads/malloc/assignment$ time env LD_PRELOAD=lib/libmalloc-ff.so tests/test3
+Running test 3  to test coalesce
+
+heap management statistics
+mallocs:        4
+frees:          3
+reuses:         4
+grows:          3
+splits:         1
+coalesces:      2
+blocks:         1
+requested:      5472
+max heap:       3424
+
+real    0m0.017s
+user    0m0.011s
+sys     0m0.005s
+lubuntu@lubuntu:~/Downloads/malloc/assignment$ time env LD_PRELOAD=lib/libmalloc-nf.so tests/test3
+Running test 3  to test coalesce
+
+heap management statistics
+mallocs:        4
+frees:          3
+reuses:         4
+grows:          3
+splits:         1
+coalesces:      2
+blocks:         1
+requested:      5472
+max heap:       3424
+
+real    0m0.015s
+user    0m0.005s
+sys     0m0.011s
+lubuntu@lubuntu:~/Downloads/malloc/assignment$ time env LD_PRELOAD=lib/libmalloc-bf.so tests/test3
+Running test 3  to test coalesce
+
+heap management statistics
+mallocs:        4
+frees:          3
+reuses:         4
+grows:          3
+splits:         1
+coalesces:      2
+blocks:         1
+requested:      5472
+max heap:       3424
+
+real    0m0.012s
+user    0m0.003s
+sys     0m0.007s
+lubuntu@lubuntu:~/Downloads/malloc/assignment$ time env LD_PRELOAD=lib/libmalloc-wf.so tests/test3
+Running test 3  to test coalesce
+
+heap management statistics
+mallocs:        4
+frees:          3
+reuses:         4
+grows:          3
+splits:         1
+coalesces:      2
+blocks:         1
+requested:      5472
+max heap:       3424
+
+real    0m0.014s
+user    0m0.009s
+sys     0m0.005s
+lubuntu@lubuntu:~/Downloads/malloc/assignment$ time env LD_PRELOAD=lib/libmalloc-ff.so tests/test4
+Running test 4 to test a block split and reuse
+
+heap management statistics
+mallocs:        3
+frees:          2
+reuses:         3
+grows:          2
+splits:         1
+coalesces:      1
+blocks:         1
+requested:      4096
+max heap:       3072
+
+real    0m0.015s
+user    0m0.015s
+sys     0m0.000s
+lubuntu@lubuntu:~/Downloads/malloc/assignment$ time env LD_PRELOAD=lib/libmalloc-nf.so tests/test4
+Running test 4 to test a block split and reuse
+
+heap management statistics
+mallocs:        3
+frees:          2
+reuses:         3
+grows:          2
+splits:         1
+coalesces:      1
+blocks:         1
+requested:      4096
+max heap:       3072
+
+real    0m0.016s
+user    0m0.005s
+sys     0m0.010s
+lubuntu@lubuntu:~/Downloads/malloc/assignment$ time env LD_PRELOAD=lib/libmalloc-bf.so tests/test4
+Running test 4 to test a block split and reuse
+
+heap management statistics
+mallocs:        3
+frees:          2
+reuses:         3
+grows:          2
+splits:         1
+coalesces:      1
+blocks:         1
+requested:      4096
+max heap:       3072
+
+real    0m0.014s
+user    0m0.013s
+sys     0m0.001s
+lubuntu@lubuntu:~/Downloads/malloc/assignment$ time env LD_PRELOAD=lib/libmalloc-wf.so tests/test4
+Running test 4 to test a block split and reuse
+
+heap management statistics
+mallocs:        3
+frees:          2
+reuses:         3
+grows:          2
+splits:         1
+coalesces:      1
+blocks:         1
+requested:      4096
+max heap:       3072
+
+real    0m0.015s
+user    0m0.011s
+sys     0m0.003s
+lubuntu@lubuntu:~/Downloads/New folder (3)$ time env LD_PRELOAD=lib/libmalloc-ff.so CustomTests/tst1
+Running basic test 1: Simple allocation and deallocation
+
+heap management statistics
+mallocs:        2
+frees:          1
+reuses:         2
+grows:          2
+splits:         0
+coalesces:      0
+blocks:         1
+requested:      1124
+max heap:       1124
+
+real    0m0.034s
+user    0m0.024s
+sys     0m0.010s
+lubuntu@lubuntu:~/Downloads/New folder (3)$ time env LD_PRELOAD=lib/libmalloc-nf.so CustomTests/tst1
+Running basic test 1: Simple allocation and deallocation
+
+heap management statistics
+mallocs:        2
+frees:          1
+reuses:         2
+grows:          2
+splits:         0
+coalesces:      0
+blocks:         1
+requested:      1124
+max heap:       1124
+
+real    0m0.011s
+user    0m0.011s
+sys     0m0.000s
+lubuntu@lubuntu:~/Downloads/New folder (3)$ time env LD_PRELOAD=lib/libmalloc-bf.so CustomTests/tst1
+Running basic test 1: Simple allocation and deallocation
+
+heap management statistics
+mallocs:        2
+frees:          1
+reuses:         2
+grows:          2
+splits:         0
+coalesces:      0
+blocks:         1
+requested:      1124
+max heap:       1124
+
+real    0m0.015s
+user    0m0.003s
+sys     0m0.013s
+lubuntu@lubuntu:~/Downloads/New folder (3)$ time env LD_PRELOAD=lib/libmalloc-wf.so CustomTests/tst1
+Running basic test 1: Simple allocation and deallocation
+
+heap management statistics
+mallocs:        2
+frees:          1
+reuses:         2
+grows:          2
+splits:         0
+coalesces:      0
+blocks:         1
+requested:      1124
+max heap:       1124
+
+real    0m0.020s
+user    0m0.008s
+sys     0m0.013s
+lubuntu@lubuntu:~/Downloads/New folder (3)$ time env LD_PRELOAD=lib/libmalloc-ff.so CustomTests/tst2
+Running basic test 2: Reallocating memory
+
+heap management statistics
+mallocs:        3
+frees:          2
+reuses:         3
+grows:          3
+splits:         0
+coalesces:      1
+blocks:         1
+requested:      1524
+max heap:       1324
+
+real    0m0.026s
+user    0m0.011s
+sys     0m0.015s
+lubuntu@lubuntu:~/Downloads/New folder (3)$ time env LD_PRELOAD=lib/libmalloc-nf.so CustomTests/tst2
+Running basic test 2: Reallocating memory
+
+heap management statistics
+mallocs:        3
+frees:          2
+reuses:         3
+grows:          3
+splits:         0
+coalesces:      1
+blocks:         1
+requested:      1524
+max heap:       1324
+
+real    0m0.026s
+user    0m0.016s
+sys     0m0.009s
+lubuntu@lubuntu:~/Downloads/New folder (3)$ time env LD_PRELOAD=lib/libmalloc-bf.so CustomTests/tst2
+Running basic test 2: Reallocating memory
+
+heap management statistics
+mallocs:        3
+frees:          2
+reuses:         3
+grows:          3
+splits:         0
+coalesces:      1
+blocks:         1
+requested:      1524
+max heap:       1324
+
+real    0m0.011s
+user    0m0.007s
+sys     0m0.004s
+lubuntu@lubuntu:~/Downloads/New folder (3)$ time env LD_PRELOAD=lib/libmalloc-wf.so CustomTests/tst2
+Running basic test 2: Reallocating memory
+
+heap management statistics
+mallocs:        3
+frees:          2
+reuses:         3
+grows:          3
+splits:         0
+coalesces:      1
+blocks:         1
+requested:      1524
+max heap:       1324
+
+real    0m0.013s
+user    0m0.004s
+sys     0m0.009s
+lubuntu@lubuntu:~/Downloads/New folder (3)$ time env LD_PRELOAD=lib/libmalloc-ff.so CustomTests/tst3
+Running custom test 3: Allocating and freeing memory with different sizes
+
+heap management statistics
+mallocs:        4
+frees:          3
+reuses:         4
+grows:          4
+splits:         0
+coalesces:      2
+blocks:         1
+requested:      1624
+max heap:       1624
+
+real    0m0.015s
+user    0m0.007s
+sys     0m0.009s
+lubuntu@lubuntu:~/Downloads/New folder (3)$ time env LD_PRELOAD=lib/libmalloc-nf.so CustomTests/tst3
+Running custom test 3: Allocating and freeing memory with different sizes
+
+heap management statistics
+mallocs:        4
+frees:          3
+reuses:         4
+grows:          4
+splits:         0
+coalesces:      2
+blocks:         1
+requested:      1624
+max heap:       1624
+
+real    0m0.011s
+user    0m0.008s
+sys     0m0.001s
+lubuntu@lubuntu:~/Downloads/New folder (3)$ 
+lubuntu@lubuntu:~/Downloads/New folder (3)$ time env LD_PRELOAD=lib/libmalloc-bf.so CustomTests/tst3
+Running custom test 3: Allocating and freeing memory with different sizes
+
+heap management statistics
+mallocs:        4
+frees:          3
+reuses:         4
+grows:          4
+splits:         0
+coalesces:      2
+blocks:         1
+requested:      1624
+max heap:       1624
+
+real    0m0.016s
+user    0m0.010s
+sys     0m0.006s
+lubuntu@lubuntu:~/Downloads/New folder (3)$ time env LD_PRELOAD=lib/libmalloc-wf.so CustomTests/tst3
+Running custom test 3: Allocating and freeing memory with different sizes
+
+heap management statistics
+mallocs:        4
+frees:          3
+reuses:         4
+grows:          4
+splits:         0
+coalesces:      2
+blocks:         1
+requested:      1624
+max heap:       1624
+
+real    0m0.020s
+user    0m0.005s
+sys     0m0.019s
+lubuntu@lubuntu:~/Downloads/New folder (3)$ time env LD_PRELOAD=lib/libmalloc-ff.so CustomTests/tst4
+Running test 4: Stress testing memory allocation
+
+heap management statistics
+mallocs:        1001
+frees:          1000
+reuses:         1001
+grows:          2
+splits:         0
+coalesces:      0
+blocks:         1
+requested:      101024
+max heap:       1124
+
+real    0m0.009s
+user    0m0.008s
+sys     0m0.001s
+lubuntu@lubuntu:~/Downloads/New folder (3)$ time env LD_PRELOAD=lib/libmalloc-nf.so CustomTests/tst4
+Running test 4: Stress testing memory allocation
+
+heap management statistics
+mallocs:        1001
+frees:          1000
+reuses:         1001
+grows:          2
+splits:         0
+coalesces:      0
+blocks:         1
+requested:      101024
+max heap:       1124
+
+real    0m0.009s
+user    0m0.009s
+sys     0m0.001s
+lubuntu@lubuntu:~/Downloads/New folder (3)$ time env LD_PRELOAD=lib/libmalloc-bf.so CustomTests/tst4
+Running test 4: Stress testing memory allocation
+
+heap management statistics
+mallocs:        1001
+frees:          1000
+reuses:         1001
+grows:          2
+splits:         0
+coalesces:      0
+blocks:         1
+requested:      101024
+max heap:       1124
+
+real    0m0.009s
+user    0m0.009s
+sys     0m0.000s
+lubuntu@lubuntu:~/Downloads/New folder (3)$ time env LD_PRELOAD=lib/libmalloc-wf.so CustomTests/tst4
+Running test 4: Stress testing memory allocation
+
+heap management statistics
+mallocs:        1001
+frees:          1000
+reuses:         1001
+grows:          2
+splits:         0
+coalesces:      0
+blocks:         1
+requested:      101024
+max heap:       1124
+
+real    0m0.009s
+user    0m0.008s
+sys     0m0.001s
